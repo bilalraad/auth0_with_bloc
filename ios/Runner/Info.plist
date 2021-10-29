@@ -49,10 +49,10 @@
 				<key>CFBundleURLSchemes</key>
 				<array>
 					<string>
-						<com.bilal.auth0withbloc>
-						</string>
-					</array>
-				</dict>
-			</array>
-		</dict>
-	</plist>
+						com.bilal.auth0withbloc
+					</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+</plist>
