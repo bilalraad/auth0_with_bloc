@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:oauth_with_bloc/bloc/login_cubit/login_cubit.dart';
 import 'package:oauth_with_bloc/view/screens/tabs/breed_search_tab.dart';
 import 'package:oauth_with_bloc/view/screens/tabs/breeds_tab.dart';
 import 'package:oauth_with_bloc/view/screens/tabs/profile_tab.dart';
@@ -23,9 +21,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
+      appBar: AppBar(),
       body: _tabs[selectedTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedTab,
@@ -45,7 +41,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'breeds search',
+            label: 'Profile',
           ),
         ],
       ),

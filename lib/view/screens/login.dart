@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oauth_with_bloc/bloc/login_cubit/login_cubit.dart';
-import 'package:oauth_with_bloc/data/cat_api/cat_api.dart';
-import 'package:oauth_with_bloc/data/cat_api/cat_api_repo.dart';
 
 class LogIn extends StatelessWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -25,11 +23,19 @@ class LogIn extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () async {
-                context.read<LoginCubit>().logIn();
+            BlocBuilder<LoginCubit, LoginState>(
+              builder: (context, state) {
+                if (state is LoginLoading) {
+                  return const CircularProgressIndicator.adaptive();
+                } else {
+                  return ElevatedButton(
+                    onPressed: () async {
+                      context.read<LoginCubit>().logIn();
+                    },
+                    child: const Text('Login Now'),
+                  );
+                }
               },
-              child: const Text('Login Now'),
             ),
           ],
         ),

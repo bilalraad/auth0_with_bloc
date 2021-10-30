@@ -6,14 +6,14 @@ import 'package:oauth_with_bloc/data/models/breed.dart';
 import 'package:http/http.dart' as http;
 
 class TheCatApiRepository {
-  final int _limit = 10;
+  final int _limit = 15;
 
-  Future<List<Breed>> getBreedsList(int page) async {
+  Future<List<Breed>> getBreedsList(int _page) async {
     try {
       final http.Response response = await http.get(
           CatApi.getUrWithQuery('/breeds', {
             "limit": "$_limit",
-            "page": "$page",
+            "page": "$_page",
           }),
           headers: {
             'contentType': 'application/json',
