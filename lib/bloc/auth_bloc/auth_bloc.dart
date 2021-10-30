@@ -12,23 +12,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final Auth0Repository _authRepository;
   AuthBloc(
     this._authRepository,
-  ) : super(AuthInitial()) {
+  ) : super(const AuthState.init()) {
     on<AppStarted>(_onAppStarted);
     on<LoggedIn>((event, emit) {
-      emit(Authenticated(event.user));
+      emit(AuthState.authenticated(event.user));
     });
     on<LoggedOut>((event, emit) {
-      emit(NotAuthenticated());
+      emit(const AuthState.unauthenticated());
     });
   }
 
   void _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
     try {
-      emit(AuthInitial());
+      emit(const AuthState.init());
       final user = await _authRepository.init();
       add(LoggedIn(user));
     } catch (e) {
-      emit(NotAuthenticated());
+      emit(const AuthState.unauthenticated());
     }
   }
 }

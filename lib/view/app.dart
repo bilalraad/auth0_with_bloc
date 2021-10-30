@@ -14,9 +14,9 @@ class App extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
-          if (state is Authenticated) {
+          if (state.status == AuthStatus.authenticated) {
             return const Home();
-          } else if (state is NotAuthenticated) {
+          } else if (state.status == AuthStatus.notAuthenticated) {
             return const LogIn();
           }
           return const SplashScreen();
