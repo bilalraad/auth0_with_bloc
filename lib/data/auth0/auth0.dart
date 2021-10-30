@@ -1,5 +1,5 @@
 import 'package:flutter_appauth/flutter_appauth.dart';
-import 'package:oauth_with_bloc/data/auth0/const.dart';
+import 'package:oauth_with_bloc/data/const.dart';
 
 class Auth0 {
   static final userInfoUri = Uri.parse('https://$AUTH0_DOMAIN/userinfo');
