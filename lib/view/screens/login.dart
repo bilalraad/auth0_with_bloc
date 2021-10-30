@@ -11,25 +11,28 @@ class LogIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            onPressed: () async {
-              print((await TheCatApiRepository().getBreedListByName('sib'))
-                  .length);
-              // print(CatApi.breedsUri.replace(queryParameters: {
-              //   ...CatApi.breedsUri.queryParameters,
-              //   "limit": "10",
-              //   "page": "1",
-              // }));
-
-              // context.read<LoginCubit>().logIn();
-            },
-            child: const Text('Login'),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Login to access the list of cats ✨⚜️',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+              ),
+            ),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () async {
+                context.read<LoginCubit>().logIn();
+              },
+              child: const Text('Login Now'),
+            ),
+          ],
+        ),
       ),
     );
   }

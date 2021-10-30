@@ -37,8 +37,8 @@ class TheCatApiRepository {
             'contentType': 'application/json',
           });
       if (response.statusCode == 200) {
-        print(response.headers);
-        return parseBreeds(response.body);
+        return compute(parseBreeds, response.body);
+        // return parseBreeds(response.body);
       } else {
         throw Exception('Uknown error - code: ${response.statusCode}');
       }
