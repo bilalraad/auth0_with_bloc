@@ -10,10 +10,3 @@ abstract class CatBreedsListEvent extends Equatable {
 class LoadBreeds extends CatBreedsListEvent {}
 
 class LoadNewBreeds extends CatBreedsListEvent {}
-
-class BreedSearchTextChanged extends CatBreedsListEvent {
-  final String name;
-  const BreedSearchTextChanged({required this.name});
-  @override
-  List<Object> get props => [name];
-}
