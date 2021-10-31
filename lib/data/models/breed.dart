@@ -10,7 +10,6 @@ class Breed {
     required this.description,
     required this.lifeSpan,
     required this.indoor,
-    required this.lap,
     required this.adaptability,
     required this.affectionLevel,
     required this.childFriendly,
@@ -29,7 +28,6 @@ class Breed {
   final String description;
   final String lifeSpan;
   final int indoor;
-  final int? lap;
   final int adaptability;
   final int affectionLevel;
   final int childFriendly;
@@ -48,7 +46,6 @@ class Breed {
     String? description,
     String? lifeSpan,
     int? indoor,
-    int? lap,
     int? adaptability,
     int? affectionLevel,
     int? childFriendly,
@@ -67,7 +64,6 @@ class Breed {
         description: description ?? this.description,
         lifeSpan: lifeSpan ?? this.lifeSpan,
         indoor: indoor ?? this.indoor,
-        lap: lap ?? this.lap,
         adaptability: adaptability ?? this.adaptability,
         affectionLevel: affectionLevel ?? this.affectionLevel,
         childFriendly: childFriendly ?? this.childFriendly,
@@ -92,7 +88,6 @@ class Breed {
       description: json["description"],
       lifeSpan: json["life_span"],
       indoor: json["indoor"],
-      lap: json["lap"],
       adaptability: json["adaptability"],
       affectionLevel: json["affection_level"],
       childFriendly: json["child_friendly"],
@@ -113,7 +108,6 @@ class Breed {
         "description": description,
         "life_span": lifeSpan,
         "indoor": indoor,
-        "lap": lap,
         "adaptability": adaptability,
         "affection_level": affectionLevel,
         "child_friendly": childFriendly,

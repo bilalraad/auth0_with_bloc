@@ -8,7 +8,7 @@ class Auth0 {
     AUTH0_REDIRECT_URI,
     issuer: 'https://$AUTH0_DOMAIN',
     scopes: <String>['openid', 'profile', 'offline_access', 'email'],
-    promptValues: ['login'],
+    // promptValues: ['login'],
   );
   static TokenRequest tokenRequest(String refreshToken) => TokenRequest(
         AUTH0_CLIENT_ID,

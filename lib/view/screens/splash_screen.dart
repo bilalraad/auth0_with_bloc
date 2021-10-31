@@ -6,18 +6,20 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
-          SizedBox(
-            height: 25.0,
-            width: 25.0,
-            child: CircularProgressIndicator(
-              strokeWidth: 4.0,
-            ),
-          )
-        ],
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const <Widget>[
+            SizedBox(
+              height: 25.0,
+              width: 25.0,
+              child: CircularProgressIndicator(
+                strokeWidth: 4.0,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

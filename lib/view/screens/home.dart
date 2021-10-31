@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oauth_with_bloc/view/screens/tabs/breed_search_tab.dart';
-import 'package:oauth_with_bloc/view/screens/tabs/breeds_tab.dart';
+import 'package:oauth_with_bloc/view/screens/tabs/breeds_tab/breeds_tab.dart';
 import 'package:oauth_with_bloc/view/screens/tabs/profile_tab.dart';
 
 class Home extends StatefulWidget {
@@ -21,7 +21,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('💎✨💎'),
+        centerTitle: true,
+      ),
       body: _tabs[selectedTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedTab,

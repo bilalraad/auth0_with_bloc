@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oauth_with_bloc/bloc/cat_breeds_list/cat_breeds_bloc.dart';
 
+import 'widgets/breed_info_card.dart';
+
 class BreedTab extends StatefulWidget {
   const BreedTab({Key? key}) : super(key: key);
 
@@ -20,28 +22,32 @@ class _BreedTabState extends State<BreedTab> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CatBreedsListBloc, CatBreedsListState>(
-      buildWhen: (previous, current) => current is CatBreedsListState,
+      buildWhen: (previous, current) => current.status != previous.status,
       builder: (context, state) {
-        print(state.status);
         switch (state.status) {
           case CatBreedsListStatus.error:
-            return const Center(child: Text('failed to fetch breeds'));
+            return Center(
+                child: Column(
+              children: [
+                const Text('failed to fetch breeds'),
+                TextButton(
+                    onPressed: () =>
+                        context.read<CatBreedsListBloc>().add(LoadBreeds()),
+                    child: const Text('Try Again'))
+              ],
+            ));
           case CatBreedsListStatus.inital:
             return const Center(child: CircularProgressIndicator.adaptive());
           default:
             if (state.breeds.isEmpty) {
-              return const Center(child: Text('no breeds'));
+              return const Center(child: Text('No breeds to load :('));
             }
             return Column(
               children: [
                 Expanded(
                   child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
-                      return SizedBox(
-                        height: 200,
-                        width: double.infinity,
-                        child: Text(state.breeds[index].name),
-                      );
+                      return BreedInfoCard(breed: state.breeds[index]);
                     },
                     itemCount: state.breeds.length,
                     controller: _scrollController,
@@ -50,7 +56,18 @@ class _BreedTabState extends State<BreedTab> {
                 if (state.status == CatBreedsListStatus.loadingNewItems)
                   const CircularProgressIndicator.adaptive(),
                 if (state.status == CatBreedsListStatus.errorLoadingNewItem)
-                  const Text('error Loading new items'),
+                  Column(
+                    children: [
+                      const Text('Error loading new items'),
+                      TextButton(
+                          onPressed: () {
+                            context
+                                .read<CatBreedsListBloc>()
+                                .add(LoadNewBreeds());
+                          },
+                          child: const Text('Try Again'))
+                    ],
+                  ),
               ],
             );
         }

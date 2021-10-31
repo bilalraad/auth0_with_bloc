@@ -26,7 +26,8 @@ class LogIn extends StatelessWidget {
             BlocBuilder<LoginCubit, LoginState>(
               builder: (context, state) {
                 if (state is LoginLoading) {
-                  return const CircularProgressIndicator.adaptive();
+                  return const SizedBox(
+                      width: 40, child: CircularProgressIndicator.adaptive());
                 } else {
                   return ElevatedButton(
                     onPressed: () async {

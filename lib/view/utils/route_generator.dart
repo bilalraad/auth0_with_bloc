@@ -15,13 +15,13 @@ class RouteGenerator {
       case '/home':
         return createRoute(const Home());
       default:
-        return createRoute(const ErrorNotFoundPage());
+        return createRoute(const ErrorPageNotFound());
     }
   }
 }
 
-class ErrorNotFoundPage extends StatelessWidget {
-  const ErrorNotFoundPage({Key? key}) : super(key: key);
+class ErrorPageNotFound extends StatelessWidget {
+  const ErrorPageNotFound({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
