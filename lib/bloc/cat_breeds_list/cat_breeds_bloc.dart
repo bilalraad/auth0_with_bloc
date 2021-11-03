@@ -53,25 +53,5 @@ class CatBreedsListBloc extends Bloc<CatBreedsListEvent, CatBreedsListState> {
             error: e.toString()));
       }
     }, transformer: droppable());
-
-    // on<BreedSearchTextChanged>(
-    //   _onBreedSearchTextChanged,
-    //   transformer: restartable(),
-    // );
   }
-
-  // void _onBreedSearchTextChanged(
-  //     BreedSearchTextChanged event, Emitter<CatBreedsState> emit) async {
-  //   final breedName = event.name;
-
-  //   if (breedName.isEmpty) return emit(const CatBreedsSearchState.init());
-
-  //   emit(const CatBreedsSearchState.loading());
-  //   try {
-  //     final breed = await _catApiRepository.getBreedListByName(breedName);
-  //     emit(CatBreedsSearchState.loaded(breed));
-  //   } catch (e) {
-  //     emit(const CatBreedsSearchState.error('Something Went Wrong'));
-  //   }
-  // }
 }
