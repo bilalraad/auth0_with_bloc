@@ -20,8 +20,9 @@ const CAT_API_KEY = "YOUR_CAT_API_KEY";
 
 ## To get these values, First:
 
-a - make an auth0 account [here](https://auth0.com/)
-b - After creating an Auth0 account, follow the steps below to set up an application:
+### a - make an auth0 account [here](https://auth0.com/)
+
+### b - After creating an Auth0 account, follow the steps below to set up an application:
 
 > Go to the Applications section of your dashboard.
 
@@ -33,7 +34,7 @@ b - After creating an Auth0 account, follow the steps below to set up an applica
 
 Your application should have at least one enabled Connection. Click on the "Connections" tab on your application page and switch on any database or social identity provider (e.g., Google).
 
-<img src="https://images.ctfassets.net/23aumh6u8s0i/3qh2x26NxPM0Lk3pqhME9N/e1430930120cd993753ede6110f4f05d/flutter-app-auth0-connections" alt="Auth0 connections for Flutter apps" />
+<img src="https://www.linkpicture.com/q/Screenshot-2021-11-03-214857.png" alt="Auth0 connections for Flutter apps" />
 
 Finally, navigate to the "Settings" tab on your application page and set a callback URL in the _Allowed Callback URLs_ field. For this demo, your callback URL should be the following value:
 
@@ -43,7 +44,7 @@ Finally, navigate to the "Settings" tab on your application page and set a callb
 
 Use the values of Domain and Client ID from your Application settings as the values of `AUTH0_DOMAIN` and `AUTH0_CLIENT_ID`.
 
-<img src="https://fv2-2.failiem.lv/down.php?i=vfax36rk8&view" alt="Auth0 connections for Flutter apps" />
+<img src="https://www.linkpicture.com/q/Screenshot-2021-11-03-211359.png" type="image" alt="Auth0 connections for Flutter apps" >
 
 ## Second
 
